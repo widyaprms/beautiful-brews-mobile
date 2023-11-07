@@ -47,9 +47,9 @@ Dalam Flutter, *Stateful Widget* memiliki objek *State* terkait yang berisi data
 
 * **ShopCard**: *Widget* yang dibuat khusus untuk menampilkan informasi dari objek ShopItem.
 
-* *ThemeData*: *Widget* yang digunakan untuk mengonfigurasi tema umum aplikasi termasuk warna, tipe teks, dan elemen desain lainnya.
+* **ThemeData**: *Widget* yang digunakan untuk mengonfigurasi tema umum aplikasi termasuk warna, tipe teks, dan elemen desain lainnya.
 
-* ColorScheme: *Widget* yang digunakan untuk menentukan skema warna untuk ThemeData.
+* **ColorScheme**: *Widget* yang digunakan untuk menentukan skema warna untuk ThemeData.
 
 
 
