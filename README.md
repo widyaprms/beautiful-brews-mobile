@@ -74,7 +74,7 @@ class MyHomePage extends StatelessWidget {
     }
 }
 ```
-3. Men-*define* tipe pada class ShhopItem untuk menambahkan teks dan card dengan menambahkan kode sebagai berikut.
+3. Men-*define* tipe pada class `ShopItem` untuk menambahkan teks dan card dengan menambahkan kode sebagai berikut.
 ```text
 class ShopItem {
   final String name;
