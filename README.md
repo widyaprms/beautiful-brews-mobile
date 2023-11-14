@@ -251,7 +251,7 @@ Elemen input ini digunakan untuk mengumpulkan deskripsi item. `onChanged` diguna
 
 >4. Bagaimana penerapan *clean architecture* pada aplikasi Flutter?
 
-*Clean Architecture* adalah suatu pola arsitektur yang digunakan untuk membangun aplikasi dengan memisahkan kode menjadi beberapa lapisan. Lapisan tersebut antara lain: *Domain Layer*, *Application Layer*, *Infrastructure Layer*, dan *Presentation Layer*.
+Clean Architecture pada aplikasi Flutter adalah suatu pola arsitektur yang digunakan untuk membangun aplikasi dengan memisahkan kode menjadi beberapa lapisan. Lapisan tersebut antara lain: *Domain Layer*, *Application Layer*, *Infrastructure Layer*, dan *Presentation Layer*.
 
 Lapisan-lapisan tersebut memiliki fungsi masing-masing, yaitu:
 * **Domain Layer**: Lapisan ini berisi definisi dari bisnis logic aplikasi. Lapisan ini tidak bergantung pada lapisan lainnya dan dapat digunakan kembali pada aplikasi lainnya.
