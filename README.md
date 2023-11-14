@@ -93,8 +93,8 @@ class ShopItem {
 1. Menambahkan kode berikut dibawah kode `MyHomePage({Key? key}) : super(key: key);` untuk menambahkan barang-barang yang dijual (nama, harga, dan icon barang tersebut).
 ```text
 final List<ShopItem> items = [
-    ShopItem("Lihat Produk", Icons.checklist, const Color.fromARGB(255, 226, 101, 143)),
-    ShopItem("Tambah Produk", Icons.add_shopping_cart, const Color.fromARGB(255, 191, 62, 214)),
+    ShopItem("Lihat Item", Icons.checklist, const Color.fromARGB(255, 226, 101, 143)),
+    ShopItem("Tambah Item", Icons.add_shopping_cart, const Color.fromARGB(255, 191, 62, 214)),
     ShopItem("Logout", Icons.logout, Colors.blue),
 ];
 ```
@@ -250,6 +250,7 @@ Elemen input ini digunakan untuk mengumpulkan deskripsi item. `onChanged` diguna
 
 
 >4. Bagaimana penerapan *clean architecture* pada aplikasi Flutter?
+
 *Clean Architecture* adalah suatu pola arsitektur yang digunakan untuk membangun aplikasi dengan memisahkan kode menjadi beberapa lapisan. Lapisan tersebut antara lain: *Domain Layer*, *Application Layer*, *Infrastructure Layer*, dan *Presentation Layer*.
 
 Lapisan-lapisan tersebut memiliki fungsi masing-masing, yaitu:

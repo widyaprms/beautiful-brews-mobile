@@ -6,8 +6,8 @@ import 'package:beautiful_brews/widgets/left_drawer.dart';
 class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
     final List<ShopItem> items = [
-      ShopItem("Lihat Produk", Icons.checklist, const Color.fromARGB(255, 226, 101, 143)),
-      ShopItem("Tambah Produk", Icons.add_shopping_cart, const Color.fromARGB(255, 191, 62, 214)),
+      ShopItem("Lihat Item", Icons.checklist, const Color.fromARGB(255, 226, 101, 143)),
+      ShopItem("Tambah Item", Icons.add_shopping_cart, const Color.fromARGB(255, 191, 62, 214)),
       ShopItem("Logout", Icons.logout, Colors.blue),
     ];
 
