@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:beautiful_brews/menu.dart';
+import 'package:beautiful_brews/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
