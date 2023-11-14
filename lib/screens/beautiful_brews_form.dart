@@ -21,7 +21,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
           appBar: AppBar(
             title: const Center(
               child: Text(
-                'Form Tambah Produk',
+                'Form Tambah Item',
               ),
             ),
             backgroundColor: Colors.indigo,
@@ -39,8 +39,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         decoration: InputDecoration(
-                          hintText: "Nama Produk",
-                          labelText: "Nama Produk",
+                          hintText: "Nama Item",
+                          labelText: "Nama Item",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5.0),
                           ),
@@ -62,8 +62,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: "Harga",
-                        labelText: "Harga",
+                        hintText: "Jumlah",
+                        labelText: "Jumlah",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -76,10 +76,10 @@ class _ShopFormPageState extends State<ShopFormPage> {
                       },
                       validator: (String? value) {
                         if (value == null || value.isEmpty) {
-                          return "Harga tidak boleh kosong!";
+                          return "Jumlah tidak boleh kosong!";
                         }
                         if (int.tryParse(value) == null) {
-                          return "Harga harus berupa angka!";
+                          return "Jumlah harus berupa angka!";
                         }
                         return null;
                       },
@@ -124,7 +124,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
-                                    title: const Text('Produk berhasil tersimpan'),
+                                    title: const Text('Item berhasil tersimpan'),
                                     content: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
