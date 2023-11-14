@@ -459,7 +459,7 @@ validator: (String? value) {
 ```
 
 - [x] Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah `pop-up` setelah menekan tombol `Save` pada halaman formulir tambah item baru.
-1. Membuka berkas `beautiful_brews_form.dart` lalu menambahkan fungsi `showDialog()` pada bagian `onPressed()`` dan munculkan widget `AlertDialog` pada fungsi tersebut.
+1. Membuka berkas `beautiful_brews_form.dart` lalu menambahkan fungsi `showDialog()` pada bagian `onPressed()` dan munculkan widget `AlertDialog` pada fungsi tersebut.
 ```text
   onPressed: () {
   if (_formKey.currentState!.validate()) {
