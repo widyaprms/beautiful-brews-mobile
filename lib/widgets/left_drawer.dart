@@ -1,3 +1,4 @@
+import 'package:beautiful_brews/screens/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:beautiful_brews/screens/menu.dart';
 import 'package:beautiful_brews/screens/beautiful_brews_form.dart';
@@ -66,6 +67,20 @@ class LeftDrawer extends StatelessWidget {
                   ));
             },
           ),
+          // Kode ListTile Menu
+
+          ListTile(
+              leading: const Icon(Icons.shopping_basket),
+              title: const Text('Daftar Item'),
+              onTap: () {
+                  // Route menu ke halaman item
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ItemPage()),
+                  );
+              },
+          ),
+
         ],
       ),
     );
