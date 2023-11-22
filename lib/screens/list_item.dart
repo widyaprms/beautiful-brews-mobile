@@ -1,3 +1,4 @@
+import 'package:beautiful_brews/screens/detail_item.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -15,7 +16,8 @@ class _ItemPageState extends State<ItemPage> {
 Future<List<Item>> fetchItem() async {
     // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
     var url = Uri.parse(
-        'http://arini-widya-tugas.pbp.cs.ui.ac.id/json/');  // ini bener gasi help
+        'https://arini-widya-tugas.pbp.cs.ui.ac.id/json/');  
+        //'http://localhost:8000/json/');
     var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
@@ -77,10 +79,21 @@ Widget build(BuildContext context) {
                                     ),
                                     ),
                                     const SizedBox(height: 10),
-                                    Text("${snapshot.data![index].fields.price}"),
+                                    Text("${snapshot.data![index].fields.amount}"),
                                     const SizedBox(height: 10),
                                     Text(
-                                        "${snapshot.data![index].fields.description}")
+                                        "${snapshot.data![index].fields.description}"),
+                                    ElevatedButton(
+                                        onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => DetailItemPage(item: snapshot.data![index]),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text('Detail Item'),
+                                    ),
                                 ],
                                 ),
                             ));
