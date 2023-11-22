@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:beautiful_brews/models/item.dart';
 import 'package:beautiful_brews/widgets/left_drawer.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class ItemPage extends StatefulWidget {
     const ItemPage({Key? key}) : super(key: key);
@@ -12,23 +14,30 @@ class ItemPage extends StatefulWidget {
     _ItemPageState createState() => _ItemPageState();
 }
 
-class _ItemPageState extends State<ItemPage> {
-Future<List<Item>> fetchItem() async {
-    // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-    var url = Uri.parse(
-        'https://arini-widya-tugas.pbp.cs.ui.ac.id/json/');  
-        //'http://localhost:8000/json/');
-    var response = await http.get(
-        url,
-        headers: {"Content-Type": "application/json"},
-    );
+// class _ItemPageState extends State<ItemPage> {
+// Future<List<Item>> fetchItem() async {
+//     // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+//     var url = Uri.parse(
+//         //'https://arini-widya-tugas.pbp.cs.ui.ac.id/json/');  
+//         'http://localhost:8000/json/');
+//     var response = await http.get(
+//         url,
+//         headers: {"Content-Type": "application/json"},
+//     );
 
-    // melakukan decode response menjadi bentuk json
-    var data = jsonDecode(utf8.decode(response.bodyBytes));
+//     // melakukan decode response menjadi bentuk json
+//     var data = jsonDecode(utf8.decode(response.bodyBytes));
+class _ItemPageState extends State<ItemPage> {
+  Future<List<Item>> fetchItem(CookieRequest request) async {
+  final response = await request.postJson(
+                                "http://localhost:8000/get-item/",
+                                jsonEncode(<String, String>{
+                                    'name':'bait',
+                                }));
 
     // melakukan konversi data json menjadi object Item
     List<Item> list_item = [];
-    for (var d in data) {
+    for (var d in response) {
         if (d != null) {
             list_item.add(Item.fromJson(d));
         }
@@ -38,13 +47,14 @@ Future<List<Item>> fetchItem() async {
 
 @override
 Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
         appBar: AppBar(
         title: const Text('Item'),
         ),
         drawer: const LeftDrawer(),
         body: FutureBuilder(
-            future: fetchItem(),
+            future: fetchItem(request),
             builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.data == null) {
                     return const Center(child: CircularProgressIndicator());

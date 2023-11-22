@@ -1,10 +1,10 @@
 import 'dart:convert';
-
 import 'package:beautiful_brews/screens/menu.dart';
 import 'package:beautiful_brews/widgets/left_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+
 
 class ShopFormPage extends StatefulWidget {
   const ShopFormPage({Key? key}) : super(key: key);
@@ -124,7 +124,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                           if (_formKey.currentState!.validate()) {
                               // Kirim ke Django dan tunggu respons
                               final response = await request.postJson(
-                              "https://arini-widya-tugas.pbp.cs.ui.ac.id/create-flutter/",
+                              //"https://arini-widya-tugas.pbp.cs.ui.ac.id/create-flutter/",
+                              "http://localhost:8000/create-flutter/",
                               jsonEncode(<String, String>{
                                   'name': _name,
                                   'amount': _amount.toString(),

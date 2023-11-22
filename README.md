@@ -666,16 +666,16 @@ def login(request):
         }, status=401)
     ```
   2. Membuat file `urls.py` pada folder `authentication` dan tambahkan kode berikut.
-  ```text
-  from django.urls import path
-  from authentication.views import login
+    ```text
+      from django.urls import path
+      from authentication.views import login
 
-  app_name = 'authentication'
+      app_name = 'authentication'
 
-  urlpatterns = [
-      path('login/', login, name='login'),
-  ]
-  ```
+      urlpatterns = [
+          path('login/', login, name='login'),
+      ]
+      ```
 3. Menambahkan `path('auth/', include('authentication.urls')),` pada file `beautiful_brews/urls.py`.
 
   - [x] Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.

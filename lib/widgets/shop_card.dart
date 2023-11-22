@@ -38,8 +38,8 @@ class ShopCard extends StatelessWidget {
           else if (item.name == "Logout") {
             final response = await request.logout(
                 // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-                "https://arini-widya-tugas.pbp.cs.ui.ac.id/auth/logout/");
-                //"http://localhost:8000/auth/logout/");
+                //"https://arini-widya-tugas.pbp.cs.ui.ac.id/auth/logout/");
+                "http://localhost:8000/auth/logout/");
             String message = response["message"];
             if (response['status']) {
               String uname = response["username"];
