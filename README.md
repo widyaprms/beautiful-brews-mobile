@@ -637,36 +637,38 @@ Dengan mendistribusikan instance CookieRequest secara global, kita memastikan ba
 >6. Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step*! (bukan hanya sekadar mengikuti tutorial).
   - [x] Membuat halaman login pada proyek tugas Flutter.
   1. Membuat sebuah metode view untuk login pada `authentication/views.py`.
-  ```text
-@csrf_exempt
-def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        if user.is_active:
-            auth_login(request, user)
-            # Status login sukses.
-            return JsonResponse({
-                "username": user.username,
-                "status": True,
-                "message": "Login sukses!"
-                # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
-            }, status=200)
+    ```text
+    @csrf_exempt
+    def login(request):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                # Status login sukses.
+                return JsonResponse({
+                    "username": user.username,
+                    "status": True,
+                    "message": "Login sukses!"
+                    # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
+                }, status=200)
+            else:
+                return JsonResponse({
+                    "status": False,
+                    "message": "Login gagal, akun dinonaktifkan."
+                }, status=401)
+
         else:
             return JsonResponse({
                 "status": False,
-                "message": "Login gagal, akun dinonaktifkan."
+                "message": "Login gagal, periksa kembali email atau kata sandi."
             }, status=401)
+      ```
 
-    else:
-        return JsonResponse({
-            "status": False,
-            "message": "Login gagal, periksa kembali email atau kata sandi."
-        }, status=401)
-    ```
   2. Membuat file `urls.py` pada folder `authentication` dan tambahkan kode berikut.
-    ```text
+      ```text
+
       from django.urls import path
       from authentication.views import login
 
@@ -675,6 +677,7 @@ def login(request):
       urlpatterns = [
           path('login/', login, name='login'),
       ]
+
       ```
 3. Menambahkan `path('auth/', include('authentication.urls')),` pada file `beautiful_brews/urls.py`.
 
@@ -682,29 +685,29 @@ def login(request):
   1. Menginstall *package* yang telah disediakan oleh asisten dosen dengan menjalankan perintah `flutter pub add provider` dan `flutter pub add pbp_django_auth` di terminal.
 
   2. Memodifikasi *root widget* untuk menyediakan CookieRequest *library* ke semua *child widgets* dengan menggunakan `Provider` menjadi sebagai berikut.
-  ```text
-    class MyApp extends StatelessWidget {
-      const MyApp({Key? key}) : super(key: key);
+    ```text
+      class MyApp extends StatelessWidget {
+        const MyApp({Key? key}) : super(key: key);
 
-      @override
-      Widget build(BuildContext context) {
-          return Provider(
-              create: (_) {
-                  CookieRequest request = CookieRequest();
-                  return request;
-              },
-              child: MaterialApp(
-                  title: 'Flutter App',
-                  theme: ThemeData(
-                      colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-                      useMaterial3: true,
-                  ),
-                  home: MyHomePage()),
-              ),
-          );
-      }
-  }
-  ```
+        @override
+        Widget build(BuildContext context) {
+            return Provider(
+                create: (_) {
+                    CookieRequest request = CookieRequest();
+                    return request;
+                },
+                child: MaterialApp(
+                    title: 'Flutter App',
+                    theme: ThemeData(
+                        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+                        useMaterial3: true,
+                    ),
+                    home: MyHomePage()),
+                ),
+            );
+        }
+    }
+    ```
 3. Membuat file baru pada folder `screens` dengan nama `login.dart` dan mengisinya dengan kode berikut.
 ```text
 import 'package:shopping_list/screens/menu.dart';
