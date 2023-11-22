@@ -637,7 +637,7 @@ Dengan mendistribusikan instance CookieRequest secara global, kita memastikan ba
 >6. Jelaskan bagaimana cara kamu mengimplementasikan *checklist* di atas secara *step-by-step*! (bukan hanya sekadar mengikuti tutorial).
   - [x] Membuat halaman login pada proyek tugas Flutter.
   1. Membuat sebuah metode view untuk login pada `authentication/views.py`.
-    ```text
+  ```text
     @csrf_exempt
     def login(request):
         username = request.POST['username']
@@ -664,11 +664,10 @@ Dengan mendistribusikan instance CookieRequest secara global, kita memastikan ba
                 "status": False,
                 "message": "Login gagal, periksa kembali email atau kata sandi."
             }, status=401)
-      ```
+    ```
 
   2. Membuat file `urls.py` pada folder `authentication` dan tambahkan kode berikut.
       ```text
-
       from django.urls import path
       from authentication.views import login
 
@@ -677,7 +676,6 @@ Dengan mendistribusikan instance CookieRequest secara global, kita memastikan ba
       urlpatterns = [
           path('login/', login, name='login'),
       ]
-
       ```
 3. Menambahkan `path('auth/', include('authentication.urls')),` pada file `beautiful_brews/urls.py`.
 
